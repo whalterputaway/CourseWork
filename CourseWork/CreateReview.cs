@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -15,6 +16,7 @@ using MySql.Data.MySqlClient;
 using static System.Net.Mime.MediaTypeNames;
 using static CourseWork.LoginForm;
 using Image = System.Drawing.Image;
+using System.Windows.Forms;
 
 namespace CourseWork
 {
@@ -212,7 +214,7 @@ namespace CourseWork
         private void SendReview_Click(object sender, EventArgs e)
         {
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `reviews` (`login`, `review`, `grade`,`timing`) VALUES (@login, @review, @grade,@timing)",db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `reviews` (`login`, `review`, `grade`,`timing`) VALUES (@login, @review, @grade,@timing)", db.getConnection());
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = RememberData.CurrentLogin;
             command.Parameters.Add("@review", MySqlDbType.VarChar).Value = ReviewField.Text;
             command.Parameters.Add("@grade", MySqlDbType.VarChar).Value = Rating;
@@ -223,7 +225,7 @@ namespace CourseWork
                 MessageBox.Show("Отзыв не может быть пустым!");
                 return;
             }
-            else if (Rating ==0)
+            else if (Rating == 0)
             {
                 MessageBox.Show("Оцените работу звездочками!");
                 return;
@@ -242,6 +244,10 @@ namespace CourseWork
             db.closeConnection();
         }
 
+        private void ReviewField_TextChanged(object sender, EventArgs e)
+        {
+            ReviewField.ScrollBars = ScrollBars.Vertical;
+        }
     }
 
 

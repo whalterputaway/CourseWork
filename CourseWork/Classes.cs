@@ -42,7 +42,7 @@ namespace Functions
     {
         public static void Kill()
         {
-            Application.Exit();
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
     }
 

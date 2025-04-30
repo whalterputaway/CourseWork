@@ -57,7 +57,7 @@ namespace CourseWork
 
 
             DB dB = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `members` (`login`, `pass`, `name`, `family`) VALUES (@login, @pass,@name, @family)", dB.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `members` (`login`, `pass`, `name`, `family`,`date`) VALUES (@login, @pass,@name, @family, @date)", dB.getConnection());
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -65,24 +65,8 @@ namespace CourseWork
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = PassField.Text;
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = NameField.Text;
             command.Parameters.Add("@family", MySqlDbType.VarChar).Value = FamilyField.Text;
-
+            command.Parameters.Add("@date", MySqlDbType.Date).Value = DateTime.UtcNow;
             dB.openConnection();
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
-            {
-                MessageBox.Show("Такая учетная запись уже существует!");
-                return;
-                /*
-                this.Hide();
-                MenuForm menuform = new MenuForm();
-                menuform.Show();
-                */
-            }
-
-
-
             if (command.ExecuteNonQuery() == 1) {
                 MessageBox.Show("Учетная запись успешно создана!");
                 GoToLog.Logout(this);
@@ -91,7 +75,7 @@ namespace CourseWork
                 MessageBox.Show("Учетная запись не создана!");
 
             dB.closeConnection();
-        }
+        }   
 
         private void NameField_TextChanged(object sender, EventArgs e)
         {

@@ -64,7 +64,10 @@ namespace CourseWork
 
 
 
-        private void ReviewField_TextChanged(object sender, EventArgs e) { }
+        private void ReviewField_TextChanged(object sender, EventArgs e)
+        {
+            ReviewField.ScrollBars = ScrollBars.Vertical;
+        }
 
 
         private void LoadRecords()
@@ -90,11 +93,11 @@ namespace CourseWork
             DataRow current = records[CurrentIndex];
             NickField.Text = current["login"].ToString();
             ReviewField.Text = current["review"].ToString();
-            GradField.Text= current["grade"].ToString();
+            GradField.Text = current["grade"].ToString();
             TimeField.Text = current["timing"].ToString();
             TimeField.Text = new string(current["timing"].ToString().Take(10).ToArray());
 
-            string Counter = $"{CurrentIndex + 1}/{records.Count}";
+            label5.Text = $"{CurrentIndex + 1}/{records.Count}";
 
 
         }
@@ -112,7 +115,7 @@ namespace CourseWork
         private void NextReviewButton_Click(object sender, EventArgs e)
         {
             if (records.Count == 0) return;
-            CurrentIndex = (CurrentIndex - 1 + records.Count)%records.Count;
+            CurrentIndex = (CurrentIndex + 1 + records.Count) % records.Count;
             ShowCurrentRecord();
         }
 
@@ -123,5 +126,11 @@ namespace CourseWork
             CurrentIndex = (CurrentIndex - 1 + records.Count) % records.Count;
             ShowCurrentRecord();
         }
+
+        private void TimeField_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

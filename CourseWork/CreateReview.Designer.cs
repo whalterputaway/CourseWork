@@ -137,7 +137,7 @@
             KillButton.AutoSize = true;
             KillButton.Cursor = Cursors.Hand;
             KillButton.Font = new Font("Franklin Gothic Medium Cond", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            KillButton.Location = new Point(771, -11);
+            KillButton.Location = new Point(773, -14);
             KillButton.Name = "KillButton";
             KillButton.Size = new Size(40, 43);
             KillButton.TabIndex = 17;
@@ -150,7 +150,7 @@
             label2.BackColor = Color.Transparent;
             label2.Cursor = Cursors.Hand;
             label2.Font = new Font("Franklin Gothic Medium Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label2.Location = new Point(43, 12);
+            label2.Location = new Point(43, 9);
             label2.Name = "label2";
             label2.Size = new Size(44, 20);
             label2.TabIndex = 16;
@@ -188,6 +188,7 @@
             ReviewField.Name = "ReviewField";
             ReviewField.Size = new Size(716, 211);
             ReviewField.TabIndex = 7;
+            ReviewField.TextChanged += ReviewField_TextChanged;
             // 
             // LogOutLink
             // 

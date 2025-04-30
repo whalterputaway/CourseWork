@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllReviews));
             panel1 = new Panel();
+            NickField = new Label();
+            label5 = new Label();
             TimeField = new Label();
             label4 = new Label();
             pictureBox3 = new PictureBox();
@@ -41,7 +43,6 @@
             pictureBox1 = new PictureBox();
             GradField = new Label();
             ReviewField = new TextBox();
-            NickField = new TextBox();
             KillButton = new Label();
             LogOutLink = new Label();
             label1 = new Label();
@@ -57,6 +58,8 @@
             // panel1
             // 
             panel1.BackColor = Color.Gray;
+            panel1.Controls.Add(NickField);
+            panel1.Controls.Add(label5);
             panel1.Controls.Add(TimeField);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(pictureBox3);
@@ -68,7 +71,6 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(GradField);
             panel1.Controls.Add(ReviewField);
-            panel1.Controls.Add(NickField);
             panel1.Controls.Add(KillButton);
             panel1.Controls.Add(LogOutLink);
             panel1.Controls.Add(label1);
@@ -78,14 +80,36 @@
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 2;
             // 
+            // NickField
+            // 
+            NickField.AutoSize = true;
+            NickField.Font = new Font("Franklin Gothic Medium Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            NickField.Location = new Point(308, 146);
+            NickField.Name = "NickField";
+            NickField.Size = new Size(44, 20);
+            NickField.TabIndex = 32;
+            NickField.Text = "label6";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Franklin Gothic Medium Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label5.Location = new Point(387, 292);
+            label5.Name = "label5";
+            label5.Size = new Size(44, 20);
+            label5.TabIndex = 31;
+            label5.Text = "label5";
+            // 
             // TimeField
             // 
             TimeField.AutoSize = true;
+            TimeField.Font = new Font("Franklin Gothic Medium Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             TimeField.Location = new Point(308, 123);
             TimeField.Name = "TimeField";
-            TimeField.Size = new Size(38, 15);
+            TimeField.Size = new Size(44, 20);
             TimeField.TabIndex = 30;
             TimeField.Text = "label5";
+            TimeField.Click += TimeField_Click;
             // 
             // label4
             // 
@@ -147,7 +171,7 @@
             label2.BackColor = Color.Transparent;
             label2.Cursor = Cursors.Hand;
             label2.Font = new Font("Franklin Gothic Medium Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label2.Location = new Point(40, 9);
+            label2.Location = new Point(43, 8);
             label2.Name = "label2";
             label2.Size = new Size(44, 20);
             label2.TabIndex = 24;
@@ -158,7 +182,7 @@
             // 
             pictureBox6.Cursor = Cursors.Hand;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(0, -1);
+            pictureBox6.Location = new Point(3, 3);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(34, 29);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -195,14 +219,6 @@
             ReviewField.Size = new Size(326, 110);
             ReviewField.TabIndex = 20;
             ReviewField.TextChanged += ReviewField_TextChanged;
-            // 
-            // NickField
-            // 
-            NickField.Location = new Point(308, 141);
-            NickField.Name = "NickField";
-            NickField.ReadOnly = true;
-            NickField.Size = new Size(127, 23);
-            NickField.TabIndex = 19;
             // 
             // KillButton
             // 
@@ -270,7 +286,6 @@
         private PictureBox pictureBox1;
         private Label GradField;
         private TextBox ReviewField;
-        private TextBox NickField;
         private PictureBox pictureBox6;
         private Label label2;
         private Label label3;
@@ -279,5 +294,7 @@
         private Label label4;
         private PictureBox pictureBox3;
         private Label TimeField;
+        private Label label5;
+        private Label NickField;
     }
 }
