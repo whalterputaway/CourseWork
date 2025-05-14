@@ -48,7 +48,7 @@ namespace CourseWork
             }
             else
             {
-                MessageBox.Show("Не правильный логин или пароль!");
+                MessageBox.Show("Неправильный логин или пароль!");
             }
         }
 

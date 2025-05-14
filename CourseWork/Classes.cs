@@ -56,7 +56,7 @@ namespace Functions
 
 
 
-
+    /*
     public class DB
     {
         private MySqlConnection _connection;
@@ -78,6 +78,6 @@ namespace Functions
                 _connection.Close();
         }
     }
-
+    */
 
 }
